@@ -26,6 +26,15 @@ public class Miliseconds {
         miliseconds = 0;
     }
 
+    public Miliseconds(long milisecs)
+    {
+        miliseconds = milisecs;
+    }
+
+    public long toMiliseconds() {
+        return miliseconds;
+    }
+
     public long toMiliseconds(Date date)
     {
         miliseconds = date.getTime();
@@ -83,7 +92,13 @@ public class Miliseconds {
 
     public long plus(long additional)
     {
-        return miliseconds + additional;
+        miliseconds = miliseconds + additional;
+        return miliseconds;
+    }
+
+    public Miliseconds diff(Miliseconds anotherMiliseconds)
+    {
+        return new Miliseconds(this.miliseconds - anotherMiliseconds.miliseconds);
     }
 
     public long addSeconds(long seconds)
@@ -91,9 +106,19 @@ public class Miliseconds {
         return plus(seconds * toSeconds);
     }
 
+    public long toMinute()
+    {
+        return this.miliseconds/toMinute;
+    }
+
     public long addMinute(long minute)
     {
         return plus(minute * toMinute);
+    }
+
+    public long toHour()
+    {
+        return this.miliseconds/toHours;
     }
 
     public long addHour(long hour)
@@ -101,9 +126,24 @@ public class Miliseconds {
         return plus(hour * toHours);
     }
 
+    public long toDay()
+    {
+        return this.miliseconds/toDay;
+    }
+
     public long addDay(int day)
     {
         return plus(day * toDay);
+    }
+
+    public long toWeek()
+    {
+        return this.miliseconds/toWeek;
+    }
+
+    public long addWeek(int week)
+    {
+        return plus(week * toWeek);
     }
     
 }

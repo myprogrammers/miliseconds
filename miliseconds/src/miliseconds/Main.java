@@ -18,15 +18,28 @@ public class Main {
      */
     public static void main(String[] args) {
         Miliseconds mili = new Miliseconds();
-        mili.toMiliseconds(16, 9, 2001, 8, 0, 0);
+        mili.toMiliseconds(16, 9, 2011, 8, 0, 0);
         System.out.println(mili.toString());
 
         System.out.println("-----------------------");
 
-        Calendar fifthOfFeb = Calendar.getInstance();
-        fifthOfFeb.set(2001, Calendar.SEPTEMBER, 16, 8, 0, 0);
-        System.out.println(fifthOfFeb.toString());
-        System.out.println(fifthOfFeb.getTimeInMillis());
+        Calendar sixteenSept = Calendar.getInstance();
+        sixteenSept.set(2011, Calendar.SEPTEMBER, 16, 8, 0, 0);
+        System.out.println("Calendar in milis "+sixteenSept.getTimeInMillis());
+
+        final Miliseconds initialMili = new Miliseconds(mili.toMiliseconds());
+
+        System.out.println("in hours: "+mili.toHour());
+        System.out.println("in hours: "+initialMili.toHour());
+        mili.addDay(1);
+        System.out.println("Add 1 day "+mili.toString());
+
+        System.out.println("now  we have: "+mili.toString());
+
+        System.out.println("in hours: "+mili.toHour());
+        System.out.println("in hours: "+initialMili.toHour());
+
+        System.out.println("difference in hours: "+mili.diff(initialMili).toHour());
     }
 
 }
